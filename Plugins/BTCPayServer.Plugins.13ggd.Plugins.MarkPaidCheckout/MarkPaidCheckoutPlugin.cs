@@ -4,17 +4,17 @@ using BTCPayServer.Abstractions.Contracts;
 using BTCPayServer.Abstractions.Models;
 using BTCPayServer.Hosting;
 using BTCPayServer.Payments;
-using BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout.PaymentHandlers;
-using BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout.Server;
+using BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout.PaymentHandlers;
+using BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout.Server;
 using BTCPayServer.Services;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout;
+namespace BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout;
 
 public class MarkPaidCheckoutPlugin : BaseBTCPayServerPlugin
 {
     public const string PluginNavKey = nameof(MarkPaidCheckoutPlugin) + "Nav";
-    public const string SettingKey = "RockstarDev.MarkPaidCheckout";
+    public const string SettingKey = "13ggd.MarkPaidCheckout";
     public const string EnvVar = "MARKPAID_METHODS";
 
     public override IBTCPayServerPlugin.PluginDependency[] Dependencies { get; } =

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BTCPayServer.Payments;
 
-namespace BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout;
+namespace BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout;
 
 public class MarkPaidMethodsRegistry
 {

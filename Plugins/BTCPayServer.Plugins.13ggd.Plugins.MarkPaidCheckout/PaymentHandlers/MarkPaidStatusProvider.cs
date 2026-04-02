@@ -4,7 +4,7 @@ using BTCPayServer.Payments;
 using BTCPayServer.Services.Invoices;
 using BTCPayServer.Services.Stores;
 
-namespace BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout.PaymentHandlers;
+namespace BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout.PaymentHandlers;
 
 public class MarkPaidStatusProvider(StoreRepository storeRepository, PaymentMethodHandlerDictionary handlers)
 {

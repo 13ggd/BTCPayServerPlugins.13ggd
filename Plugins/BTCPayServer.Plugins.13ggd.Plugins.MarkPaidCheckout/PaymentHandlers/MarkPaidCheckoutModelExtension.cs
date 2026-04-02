@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using BTCPayServer.Payments;
 
-namespace BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout.PaymentHandlers;
+namespace BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout.PaymentHandlers;
 
 public static class MarkPaidUi
 {

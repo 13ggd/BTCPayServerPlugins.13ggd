@@ -6,7 +6,7 @@ using BTCPayServer.Services.Rates;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout.PaymentHandlers;
+namespace BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout.PaymentHandlers;
 
 public class MarkPaidPaymentMethodHandler(CurrencyNameTable currencyNameTable, PaymentMethodId paymentMethodId) : IPaymentMethodHandler
 {

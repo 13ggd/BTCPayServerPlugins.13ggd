@@ -1,4 +1,4 @@
-namespace BTCPayServer.RockstarDev.Plugins.MarkPaidCheckout.Server;
+namespace BTCPayServer.Plugins.13ggd.Plugins.MarkPaidCheckout.Server;
 
 public class MarkPaidSettings
 {
