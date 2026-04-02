@@ -8,15 +8,15 @@ using BTCPayServer.Services.Stores;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BTCPayServer.Plugins.13ggd.Plugins.SimpleCash;
+namespace BTCPayServer.Plugins.13ggd.Plugins.TestCash;
 
-[Route("stores/{storeId}/simplecash")]
+[Route("stores/{storeId}/testcash")]
 [Authorize(Policy = Policies.CanModifyStoreSettings, AuthenticationSchemes = AuthenticationSchemes.Cookie)]
-public class SimpleCashController : Controller
+public class TestCashController : Controller
 {
     private readonly InvoiceRepository _invoiceRepository;
 
-    public SimpleCashController(InvoiceRepository invoiceRepository)
+    public TestCashController(InvoiceRepository invoiceRepository)
     {
         _invoiceRepository = invoiceRepository;
     }
@@ -26,14 +26,14 @@ public class SimpleCashController : Controller
     [AllowAnonymous]
     public async Task<IActionResult> MarkAsPaid(string invoiceId, string storeId, string returnUrl)
     {
-        if (Request.Headers["X-Requested-With"] != "SimpleCashHttpRequester")
+        if (Request.Headers["X-Requested-With"] != "TestCashHttpRequester")
             return BadRequest();
 
         var invoice = await _invoiceRepository.GetInvoice(invoiceId, true);
         if (invoice.StoreId != storeId || invoice.Status != InvoiceStatus.New)
             return Json(new { success = false, error = "Invoice not found or already paid" });
 
-        var pmid = new PaymentMethodId("CASH_13GGD");
+        var pmid = new PaymentMethodId("TESTCASH");
         var paymentData = new PaymentData
         {
             Id = Guid.NewGuid().ToString(),

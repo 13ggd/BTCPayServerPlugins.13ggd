@@ -1,10 +1,10 @@
-@using BTCPayServer.Plugins.13ggd.Plugins.SimpleCash
+@using BTCPayServer.Plugins.13ggd.Plugins.TestCash
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <div class="row">
     <div class="col-md-12">
-        <h3>Simple Cash Payment (13ggd)</h3>
-        <p>This is a simple cash payment method for testing purposes.</p>
+        <h3>Test Cash Payment (13ggd)</h3>
+        <p>This is a minimal test cash payment method.</p>
         <div class="text-center">
             <button class="btn btn-primary" onclick="markAsPaid()">Mark as Paid</button>
         </div>
@@ -17,11 +17,11 @@ function markAsPaid() {
     const storeId = '@Model.StoreId';
     const returnUrl = `/i/${invoiceId}`;
     
-    fetch(`/stores/${storeId}/simplecash/MarkAsPaid?invoiceId=${invoiceId}&returnUrl=${returnUrl}`, {
+    fetch(`/stores/${storeId}/testcash/MarkAsPaid?invoiceId=${invoiceId}&returnUrl=${returnUrl}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'X-Requested-With': 'SimpleCashHttpRequester'
+            'X-Requested-With': 'TestCashHttpRequester'
         }
     })
     .then(response => response.json())

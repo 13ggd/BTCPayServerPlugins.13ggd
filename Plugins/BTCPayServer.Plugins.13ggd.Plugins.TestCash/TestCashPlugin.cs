@@ -1,16 +1,15 @@
 using System;
-using System.Linq;
 using BTCPayServer.Abstractions.Contracts;
 using BTCPayServer.Hosting;
 using BTCPayServer.Payments;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BTCPayServer.Plugins.13ggd.Plugins.SimpleCash;
+namespace BTCPayServer.Plugins.13ggd.Plugins.TestCash;
 
-public class SimpleCashPlugin : BaseBTCPayServerPlugin
+public class TestCashPlugin : BaseBTCPayServerPlugin
 {
-    public const string PluginNavKey = nameof(SimpleCashPlugin) + "Nav";
-    public const string SettingKey = "13ggd.SimpleCash";
+    public const string PluginNavKey = nameof(TestCashPlugin) + "Nav";
+    public const string SettingKey = "13ggd.TestCash";
 
     public override IBTCPayServerPlugin.PluginDependency[] Dependencies { get; } =
     [
@@ -19,21 +18,21 @@ public class SimpleCashPlugin : BaseBTCPayServerPlugin
 
     public override void Execute(IServiceCollection services)
     {
-        var pmid = new PaymentMethodId("CASH_13GGD");
+        var pmid = new PaymentMethodId("TESTCASH");
         services.AddTransactionLinkProvider(pmid, new DefaultTransactionLinkProvider(null));
-        services.AddSingleton<IPaymentMethodHandler>(provider => new SimpleCashPaymentMethodHandler(pmid));
-        services.AddSingleton<ICheckoutModelExtension>(provider => new SimpleCashCheckoutModelExtension(pmid));
-        services.AddDefaultPrettyName(pmid, "Cash (13ggd)");
+        services.AddSingleton<IPaymentMethodHandler>(provider => new TestCashPaymentMethodHandler(pmid));
+        services.AddSingleton<ICheckoutModelExtension>(provider => new TestCashCheckoutModelExtension(pmid));
+        services.AddDefaultPrettyName(pmid, "Test Cash (13ggd)");
         
         base.Execute(services);
     }
 }
 
-public class SimpleCashPaymentMethodHandler : IPaymentMethodHandler
+public class TestCashPaymentMethodHandler : IPaymentMethodHandler
 {
     public PaymentMethodId PaymentMethodId { get; }
 
-    public SimpleCashPaymentMethodHandler(PaymentMethodId pmid)
+    public TestCashPaymentMethodHandler(PaymentMethodId pmid)
     {
         PaymentMethodId = pmid;
     }
@@ -55,25 +54,25 @@ public class SimpleCashPaymentMethodHandler : IPaymentMethodHandler
 
     public object ParsePaymentPromptDetails(JToken details)
     {
-        return new SimpleCashPaymentDetails();
+        return new TestCashPaymentDetails();
     }
 
     public object ParsePaymentMethodConfig(JToken config)
     {
-        return new SimpleCashPaymentMethodConfig();
+        return new TestCashPaymentMethodConfig();
     }
 
     public object ParsePaymentDetails(JToken details)
     {
-        return new SimpleCashPaymentData();
+        return new TestCashPaymentData();
     }
 }
 
-public class SimpleCashCheckoutModelExtension : ICheckoutModelExtension
+public class TestCashCheckoutModelExtension : ICheckoutModelExtension
 {
     public PaymentMethodId PaymentMethodId { get; }
 
-    public SimpleCashCheckoutModelExtension(PaymentMethodId pmid)
+    public TestCashCheckoutModelExtension(PaymentMethodId pmid)
     {
         PaymentMethodId = pmid;
     }
@@ -86,15 +85,14 @@ public class SimpleCashCheckoutModelExtension : ICheckoutModelExtension
         if (context.Handler.PaymentMethodId != PaymentMethodId)
             return;
             
-        context.Model.CheckoutBodyComponentName = "SimpleCashCheckout";
+        context.Model.CheckoutBodyComponentName = "TestCashCheckout";
         context.Model.InvoiceBitcoinUrlQR = null;
         context.Model.ExpirationSeconds = int.MaxValue;
         context.Model.Activated = true;
-        context.Model.InvoiceBitcoinUrl = $"/stores/{context.Model.StoreId}/simplecash/MarkAsPaid?invoiceId={context.Model.InvoiceId}&returnUrl=/i/{context.Model.InvoiceId}";
         context.Model.ShowPayInWalletButton = true;
     }
 }
 
-public class SimpleCashPaymentDetails { }
-public class SimpleCashPaymentMethodConfig { }
-public class SimpleCashPaymentData { }
+public class TestCashPaymentDetails { }
+public class TestCashPaymentMethodConfig { }
+public class TestCashPaymentData { }
