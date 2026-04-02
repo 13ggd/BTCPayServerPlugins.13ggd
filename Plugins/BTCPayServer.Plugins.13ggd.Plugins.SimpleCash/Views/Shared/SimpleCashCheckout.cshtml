@@ -1,0 +1,40 @@
+@using BTCPayServer.Plugins.13ggd.Plugins.SimpleCash
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Simple Cash Payment (13ggd)</h3>
+        <p>This is a simple cash payment method for testing purposes.</p>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="markAsPaid()">Mark as Paid</button>
+        </div>
+    </div>
+</div>
+
+<script>
+function markAsPaid() {
+    const invoiceId = '@Model.InvoiceId';
+    const storeId = '@Model.StoreId';
+    const returnUrl = `/i/${invoiceId}`;
+    
+    fetch(`/stores/${storeId}/simplecash/MarkAsPaid?invoiceId=${invoiceId}&returnUrl=${returnUrl}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'SimpleCashHttpRequester'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Payment marked as paid successfully!');
+            window.location.href = returnUrl;
+        } else {
+            alert('Error: ' + data.error);
+        }
+    })
+    .catch(error => {
+        alert('Error: ' + error.message);
+    });
+}
+</script>
