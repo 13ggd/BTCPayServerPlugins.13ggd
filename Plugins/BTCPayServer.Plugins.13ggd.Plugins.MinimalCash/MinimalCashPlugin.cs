@@ -11,7 +11,7 @@ namespace BTCPayServer.Plugins.MinimalCash
     public class MinimalCashPlugin : BaseBTCPayServerPlugin
     {
         public const string PluginNavKey = nameof(MinimalCashPlugin) + "Nav";
-        public const string SettingKey = "13ggd.MinimalCash";
+        public const string SettingKey = "13ggd.MinimalCash.v2";
 
         public override IBTCPayServerPlugin.PluginDependency[] Dependencies { get; } =
         [
