@@ -9,7 +9,7 @@ using Newtonsoft.Json.Linq;
 
 namespace BTCPayServer.Plugins.MinimalCash
 {
-    public class MinimalCashPlugin : BaseBTCPayServerPlugin
+    public class MinimalCashPlugin : BTCPayServerPlugin
     {
         public const string PluginNavKey = nameof(MinimalCashPlugin) + "Nav";
         public const string SettingKey = "13ggd.MinimalCash.v3";
