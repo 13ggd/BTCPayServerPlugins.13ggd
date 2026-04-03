@@ -34,20 +34,9 @@ namespace BTCPayServer.Plugins.MinimalCash
                 return Json(new { success = false, error = "Invoice not found or already paid" });
 
             var pmid = new PaymentMethodId("MINIMAL_CASH");
-            var paymentData = new PaymentData
-            {
-                Id = Guid.NewGuid().ToString(),
-                Created = DateTimeOffset.UtcNow,
-                Status = PaymentStatus.Settled,
-                Currency = invoice.Currency,
-                InvoiceDataId = invoiceId,
-                Amount = invoice.Price,
-                PaymentMethodId = pmid.ToString()
-            };
-
-            var payment = await _invoiceRepository.AddPayment(paymentData);
-            if (payment != null) 
-                await _invoiceRepository.MarkInvoiceStatus(invoice.Id, InvoiceStatus.Settled);
+            
+            // Simplified payment marking - just update status
+            await _invoiceRepository.MarkInvoiceStatus(invoice.Id, InvoiceStatus.Settled);
 
             return Json(new { success = true, status = invoice.Status.ToString() });
         }

@@ -12,7 +12,7 @@ namespace BTCPayServer.Plugins.MinimalCash
     public class MinimalCashPlugin : BTCPayServerPlugin
     {
         public const string PluginNavKey = nameof(MinimalCashPlugin) + "Nav";
-        public const string SettingKey = "13ggd.MinimalCash.v3";
+        public const string SettingKey = "13ggd.MinimalCash.v5";
 
         public override IBTCPayServerPlugin.PluginDependency[] Dependencies { get; } =
         [
@@ -22,7 +22,6 @@ namespace BTCPayServer.Plugins.MinimalCash
         public override void Execute(IServiceCollection services)
         {
             var pmid = new PaymentMethodId("MINIMAL_CASH");
-            services.AddTransactionLinkProvider(pmid, new DefaultTransactionLinkProvider(null));
             services.AddSingleton<IPaymentMethodHandler>(provider => new MinimalCashPaymentMethodHandler(pmid));
             services.AddSingleton<ICheckoutModelExtension>(provider => new MinimalCashCheckoutModelExtension(pmid));
             services.AddDefaultPrettyName(pmid, "Minimal Cash (13ggd)");
@@ -53,7 +52,7 @@ namespace BTCPayServer.Plugins.MinimalCash
             return Task.CompletedTask;
         }
 
-        public JsonSerializer Serializer => BlobSerializer.CreateSerializer().Serializer;
+        public JsonSerializer Serializer => new JsonSerializer();
 
         public object ParsePaymentPromptDetails(JToken details)
         {
