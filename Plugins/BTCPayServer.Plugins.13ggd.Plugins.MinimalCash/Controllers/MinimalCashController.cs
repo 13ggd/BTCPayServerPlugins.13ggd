@@ -8,7 +8,7 @@ using BTCPayServer.Services.Stores;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BTCPayServer.Plugins.13ggd.Plugins.MinimalCash
+namespace BTCPayServer.Plugins.MinimalCash
 {
     [Route("stores/{storeId}/minimalcash")]
     [Authorize(Policy = Policies.CanModifyStoreSettings, AuthenticationSchemes = AuthenticationSchemes.Cookie)]

@@ -3,7 +3,7 @@ using BTCPayServer.Hosting;
 using BTCPayServer.Payments;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BTCPayServer.Plugins.13ggd.Plugins.MinimalCash
+namespace BTCPayServer.Plugins.MinimalCash
 {
     public class MinimalCashPlugin : BaseBTCPayServerPlugin
     {
