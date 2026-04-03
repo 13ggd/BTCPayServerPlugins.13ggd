@@ -8,15 +8,15 @@ using BTCPayServer.Services.Stores;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BTCPayServer.Plugins.MinimalCash
+namespace BTCPayServer.Plugins.SimpleCashBR
 {
     [Route("stores/{storeId}/minimalcash")]
     [Authorize(Policy = "CanModifyStoreSettings", AuthenticationSchemes = "Cookie")]
-    public class MinimalCashController : Controller
+    public class SimpleCashBRController : Controller
     {
         private readonly InvoiceRepository _invoiceRepository;
 
-        public MinimalCashController(InvoiceRepository invoiceRepository)
+        public SimpleCashBRController(InvoiceRepository invoiceRepository)
         {
             _invoiceRepository = invoiceRepository;
         }
