@@ -1,0 +1,20 @@
+{
+  "dependencies": [
+    {
+      "condition": ">=2.1.5",
+      "identifier": "BTCPayServer"
+    }
+  ],
+  "description": "Simple Cash BR Plugin by 13ggd",
+  "identifier": "simplecashbr",
+  "name": "Simple Cash BR",
+  "version": "1.0.0.0",
+  "icon": null,
+  "website": null,
+  "contributors": [
+    {
+      "name": "13ggd",
+      "maintainer": true
+    }
+  ]
+}
