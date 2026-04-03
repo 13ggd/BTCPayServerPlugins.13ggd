@@ -16,7 +16,7 @@ namespace BTCPayServer.Plugins.MinimalCash
 
         public override IBTCPayServerPlugin.PluginDependency[] Dependencies { get; } =
         [
-            new() { Identifier = "minimalcash", Condition = ">=2.1.5" }
+            new() { Identifier = "BTCPayServer", Condition = ">=2.1.5" }
         ];
 
         public override void Execute(IServiceCollection services)
