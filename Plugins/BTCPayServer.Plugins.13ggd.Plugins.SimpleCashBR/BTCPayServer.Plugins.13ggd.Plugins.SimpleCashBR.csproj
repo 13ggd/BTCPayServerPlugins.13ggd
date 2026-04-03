@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>BTCPayServer.Plugins.13ggd.Plugins.SimpleCashBR</AssemblyName>
+    <AssemblyName>simplecashbr</AssemblyName>
     <PackageId>simplecashbr</PackageId>
     <Product>Simple Cash BR Plugin by 13ggd</Product>
     <Description>Simple cash payment method for BTCPayServer Brazil.</Description>
