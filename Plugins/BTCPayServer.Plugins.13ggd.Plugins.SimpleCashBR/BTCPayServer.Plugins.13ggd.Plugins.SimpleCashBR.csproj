@@ -1,3 +1,4 @@
+
 <Project Sdk="Microsoft.NET.Sdk.Razor">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -5,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyName>simplecashbr</AssemblyName>
+    <AssemblyName>BTCPayServer.Plugins.13ggd.Plugins.SimpleCashBR</AssemblyName>
     <PackageId>simplecashbr</PackageId>
     <Product>Simple Cash BR Plugin by 13ggd</Product>
     <Description>Simple cash payment method for BTCPayServer Brazil.</Description>
