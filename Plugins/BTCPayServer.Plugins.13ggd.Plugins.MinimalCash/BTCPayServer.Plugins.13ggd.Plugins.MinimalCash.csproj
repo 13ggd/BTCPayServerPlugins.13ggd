@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
+    <AssemblyName>minimalcash</AssemblyName>
     <PackageId>minimalcash</PackageId>
     <Product>Minimal Cash Plugin by 13ggd</Product>
     <Description>Minimal cash payment method for BTCPayServer testing.</Description>
