@@ -4,6 +4,7 @@ using BTCPayServer.Abstractions.Contracts;
 using BTCPayServer.Hosting;
 using BTCPayServer.Payments;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace BTCPayServer.Plugins.MinimalCash
@@ -11,7 +12,7 @@ namespace BTCPayServer.Plugins.MinimalCash
     public class MinimalCashPlugin : BaseBTCPayServerPlugin
     {
         public const string PluginNavKey = nameof(MinimalCashPlugin) + "Nav";
-        public const string SettingKey = "13ggd.MinimalCash.v2";
+        public const string SettingKey = "13ggd.MinimalCash.v3";
 
         public override IBTCPayServerPlugin.PluginDependency[] Dependencies { get; } =
         [
@@ -52,7 +53,7 @@ namespace BTCPayServer.Plugins.MinimalCash
             return Task.CompletedTask;
         }
 
-        public JsonSerializer Serializer { get; } = BlobSerializer.CreateSerializer().Serializer;
+        public JsonSerializer Serializer => BlobSerializer.CreateSerializer().Serializer;
 
         public object ParsePaymentPromptDetails(JToken details)
         {
