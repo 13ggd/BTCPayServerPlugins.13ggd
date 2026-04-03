@@ -4,7 +4,7 @@ using BTCPayServer.Abstractions.Contracts;
 using BTCPayServer.Hosting;
 using BTCPayServer.Payments;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace BTCPayServer.Plugins.MinimalCash
 {

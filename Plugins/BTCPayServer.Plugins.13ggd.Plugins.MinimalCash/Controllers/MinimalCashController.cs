@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BTCPayServer.Plugins.MinimalCash
 {
     [Route("stores/{storeId}/minimalcash")]
-    [Authorize(Policy = Policies.CanModifyStoreSettings, AuthenticationSchemes = AuthenticationSchemes.Cookie)]
+    [Authorize(Policy = "CanModifyStoreSettings", AuthenticationSchemes = "Cookie")]
     public class MinimalCashController : Controller
     {
         private readonly InvoiceRepository _invoiceRepository;
