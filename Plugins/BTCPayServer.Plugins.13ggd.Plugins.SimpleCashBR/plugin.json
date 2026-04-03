@@ -6,7 +6,7 @@
     }
   ],
   "description": "Simple Cash BR Plugin by 13ggd",
-  "identifier": "BTCPayServer.Plugins.13ggd.Plugins.SimpleCashBR",
+  "identifier": "simplecashbr",
   "name": "Simple Cash BR",
   "version": "1.0.0.0",
   "icon": null,
